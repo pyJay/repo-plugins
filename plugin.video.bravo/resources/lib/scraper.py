@@ -42,7 +42,7 @@ class myAddon(t1mAddon):
       self.defaultVidStream['height'] = 1080
       epiHTML = self.getRequest(url)
       (tvshow,  fanart) = re.compile('og:title" content="(.+?)".+?"og:image" content="(.+?)"',re.DOTALL).search(epiHTML).groups()
-      epis = re.compile('class="watch__episode.+?href="(.+?)".+?</ul>',re.DOTALL).findall(epiHTML)
+      epis = re.compile('class="watch__title.+?href="(.+?)".+?</ul>',re.DOTALL).findall(epiHTML)
       for url in epis:
           burl = BRAVOBASE % url
           html = self.getRequest(burl)
